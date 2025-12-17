@@ -11,7 +11,12 @@
 
 </div>
 
-
+<div class="flex justify-end  mb-4">
+  <Search
+    route-name="tenant.users.index"
+    v-model="search"
+  />
+</div>
 <table class="w-full bg-white rounded shadow">
 <thead class="bg-gray-100">
 <tr>
@@ -39,10 +44,16 @@
 import AppLayout from '@/Layouts/AppLayout.vue'
 import { Link, router } from '@inertiajs/vue3'
 import Pagination from '@/Components/Pagination.vue'
+import Search from '@/Components/Search.vue'
+import { ref } from 'vue'
 
 
-defineProps({ users: Array })
+const props = defineProps({
+  users: Object,
+  filters: Object,
+})
 
+const search = ref(props.filters?.search || '')
 
 function destroy(id) {
 if (confirm('Are you sure?')) {

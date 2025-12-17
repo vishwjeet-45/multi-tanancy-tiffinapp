@@ -8,12 +8,16 @@ use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Hash;
 
+
 class UserController extends Controller
 {
-     public function index()
+     public function index(Request $request)
     {
-         $users = User::query()
-        ->latest()
+        $query = User::query();
+        if($request->search){
+            $query = User::search($request->search);
+        }
+         $users = $query->latest()
         ->paginate(1);
         return Inertia::render('Tenant/Users/Index', [
             'users' => $users
