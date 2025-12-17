@@ -1,63 +1,146 @@
 /* Pages/Users/Index.vue */
 <template>
-<AppLayout>
-<template #title>Users</template>
+    <AppLayout>
+        <template #title>Users</template>
 
+        <div class="flex justify-end mb-4">
+            <Link
+                :href="route('tenant.users.create')"
+                class="bg-blue-600 text-white px-4 py-2 rounded"
+            >
+                Add User
+            </Link>
+        </div>
 
-<div class="flex justify-end mb-4">
-<Link :href="route('tenant.users.create')" class="bg-blue-600 text-white px-4 py-2 rounded">
-    Add User
-</Link>
+        <div class="w-full bg-white rounded shadow p-3">
+            <div class="card-body">
+                <div class="flex justify-end mb-4">
+                    <Search route-name="tenant.users.index" v-model="search" />
+                </div>
+                <table class="w-full bg-white rounded shadow">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="p-2 text-left">Name</th>
+                            <th class="p-2 text-left">Email</th>
+                            <th class="p-2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="user in users.data" :key="user.id" class="border-t">
+                            <td class="p-2 text-gray-700">{{ user.name }}</td>
+                            <td class="p-2 text-gray-700">{{ user.email }}</td>
+                            <td class="p-2 text-center ">
+                                <button
+                                    @click="openEditModal(user)"
+                                    class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded"
+                                >
+                                    Edit
+                                </button>
+                               <button
+                                    @click="deleteUser(user.id)"
+                                    class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
+                                >
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <Pagination :links="users.links" />
+            </div>
+        </div>
+    </AppLayout>
 
+<div v-if="showEditModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white w-96 rounded shadow-lg p-6">
+        <h2 class="text-lg font-bold mb-4">Edit User</h2>
+
+        <div class="mb-3">
+            <label class="block text-sm">Name</label>
+            <input
+                v-model="editForm.name"
+                type="text"
+                class="w-full border rounded px-3 py-2"
+            />
+        </div>
+
+        <div class="mb-3">
+            <label class="block text-sm">Email</label>
+            <input
+                v-model="editForm.email"
+                type="email"
+                class="w-full border rounded px-3 py-2"
+            />
+        </div>
+
+        <div class="flex justify-end gap-2">
+            <button
+                @click="closeEditModal"
+                class="px-4 py-2 bg-gray-300 rounded"
+            >
+                Cancel
+            </button>
+
+            <button
+                @click="updateUser"
+                class="px-4 py-2 bg-blue-600 text-white rounded"
+            >
+                Save
+            </button>
+        </div>
+    </div>
 </div>
 
-<div class="flex justify-end  mb-4">
-  <Search
-    route-name="tenant.users.index"
-    v-model="search"
-  />
-</div>
-<table class="w-full bg-white rounded shadow">
-<thead class="bg-gray-100">
-<tr>
-<th class="p-2 text-left">Name</th>
-<th class="p-2 text-left">Email</th>
-<th class="p-2">Action</th>
-</tr>
-</thead>
-<tbody>
-<tr v-for="user in users.data" :key="user.id" class="border-t">
-<td class="p-2">{{ user.name }}</td>
-<td class="p-2">{{ user.email }}</td>
-<td class="p-2 text-center">
-<button @click="destroy(user.id)" class="text-red-600">Delete</button>
-</td>
-</tr>
-</tbody>
-</table>
-<Pagination :links="users.links" />
-</AppLayout>
 </template>
 
-
 <script setup>
-import AppLayout from '@/Layouts/AppLayout.vue'
-import { Link, router } from '@inertiajs/vue3'
-import Pagination from '@/Components/Pagination.vue'
-import Search from '@/Components/Search.vue'
-import { ref } from 'vue'
-
+import AppLayout from "@/Layouts/AppLayout.vue";
+import { Link, router } from "@inertiajs/vue3";
+import Pagination from "@/Components/Pagination.vue";
+import Search from "@/Components/Search.vue";
+import { ref } from "vue";
+import Swal from 'sweetalert2'
 
 const props = defineProps({
-  users: Object,
-  filters: Object,
-})
+    users: Object,
+    filters: Object,
+});
 
-const search = ref(props.filters?.search || '')
+const search = ref(props.filters?.search || "");
+const showEditModal = ref(false);
 
-function destroy(id) {
-if (confirm('Are you sure?')) {
-router.delete(`/users/${id}`)
-}
-}
+const editForm = ref({
+    id: null,
+    name: "",
+    email: "",
+});
+
+const openEditModal = (user) => {
+    editForm.value = { ...user };
+    showEditModal.value = true;
+};
+
+const closeEditModal = () => {
+    showEditModal.value = false;
+};
+
+const updateUser = () => {
+    console.log(editForm.value.name);
+    router.put(
+        route("tenant.users.update", editForm.value.id),
+        {
+            name: editForm.value.name,
+            email: editForm.value.email,
+        },
+        {
+            preserveScroll: true,
+            onSuccess: () => {
+                Swal.fire('Updated!', 'User Updated successfully', 'success')
+                showEditModal.value = false;
+            },
+        }
+    );
+};
+
+
 </script>

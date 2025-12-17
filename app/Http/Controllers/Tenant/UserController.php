@@ -17,8 +17,8 @@ class UserController extends Controller
         if($request->search){
             $query = User::search($request->search);
         }
-         $users = $query->latest()
-        ->paginate(1);
+        $users = $query->latest()
+        ->paginate(10);
         return Inertia::render('Tenant/Users/Index', [
             'users' => $users
         ]);
@@ -46,9 +46,36 @@ class UserController extends Controller
         return redirect()->route('tenant.users.index');
     }
 
+      public function update(Request $request,User $user)
+    {
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        // dd($user);
+        $user->update([
+            'name' => $request->name,
+        ]);
+
+        return redirect()->route('tenant.users.index');
+    }
+
     public function destroy(User $user)
     {
+        if (!$user) {
+            return response()->json([
+                'status_code' => 0,
+                'status' => 'error',
+                'message' => 'User Not Found',
+            ]);
+        }
+
         $user->delete();
-        return back();
+
+        return response()->json([
+            'status_code' => 1,
+            'status' => 'success',
+            'message' => 'User Deleted successfully',
+        ]);
     }
 }

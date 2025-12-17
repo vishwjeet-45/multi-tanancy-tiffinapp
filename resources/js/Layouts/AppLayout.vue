@@ -12,6 +12,7 @@
       <Header  @toggle="handleSidebarToggle" />
 
       <main class="flex-1 p-4 sm:p-6">
+         <Notification />
         <slot />
       </main>
     </div>
@@ -23,6 +24,7 @@ import Sidebar from "@/Components/Sidebar.vue";
 import Header from "@/Components/Header.vue";
 import { usePage } from "@inertiajs/vue3";
 import { ref } from 'vue';
+import Notification from '@/Components/Notification.vue'
 
 const page = usePage();
 // Assuming `sidebar_menu_links` is an array of menu objects
