@@ -62,6 +62,9 @@
                 type="text"
                 class="w-full border rounded px-3 py-2"
             />
+            <p v-if="page.props.errors.name" class="text-red-500 text-sm">
+                {{ page.props.errors.name }}
+            </p>
         </div>
 
         <div class="mb-3">
@@ -95,12 +98,13 @@
 
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
-import { Link, router } from "@inertiajs/vue3";
+import { Link, router,usePage } from "@inertiajs/vue3";
 import Pagination from "@/Components/Pagination.vue";
 import Search from "@/Components/Search.vue";
 import { ref } from "vue";
 import Swal from 'sweetalert2'
 
+const page = usePage();
 const props = defineProps({
     users: Object,
     filters: Object,
@@ -125,13 +129,9 @@ const closeEditModal = () => {
 };
 
 const updateUser = () => {
-    console.log(editForm.value.name);
     router.put(
         route("tenant.users.update", editForm.value.id),
-        {
-            name: editForm.value.name,
-            email: editForm.value.email,
-        },
+        editForm.value,
         {
             preserveScroll: true,
             onSuccess: () => {
@@ -140,6 +140,34 @@ const updateUser = () => {
             },
         }
     );
+};
+
+const deleteUser = (id) => {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            router.delete(route('tenant.users.destroy', id), {
+                preserveScroll: true,
+
+                onSuccess: () => {
+                    const flash = usePage().props.flash;
+
+                    if (flash.success) {
+                        Swal.fire('Deleted!', flash.success, 'success');
+                    }
+
+                    if (flash.error) {
+                        Swal.fire('Error!', flash.error, 'error');
+                    }
+                }
+            });
+        }
+    });
 };
 
 

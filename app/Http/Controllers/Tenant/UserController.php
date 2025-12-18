@@ -46,13 +46,13 @@ class UserController extends Controller
         return redirect()->route('tenant.users.index');
     }
 
-      public function update(Request $request,User $user)
+    public function update(Request $request,User $user)
     {
+
         $request->validate([
             'name' => 'required',
         ]);
 
-        // dd($user);
         $user->update([
             'name' => $request->name,
         ]);
@@ -62,20 +62,13 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
-        if (!$user) {
-            return response()->json([
-                'status_code' => 0,
-                'status' => 'error',
-                'message' => 'User Not Found',
-            ]);
+        if (! $user) {
+            return redirect()->back()->with('error', 'User not found');
         }
 
         $user->delete();
 
-        return response()->json([
-            'status_code' => 1,
-            'status' => 'success',
-            'message' => 'User Deleted successfully',
-        ]);
+        return redirect()->back()->with('success', 'User deleted successfully');
     }
+
 }
