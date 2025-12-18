@@ -5,7 +5,8 @@
       color: theme.sidebarText
     }">
     <div class="flex shrink-0 items-center shadow-md py-2">
-      <Link :href="route('dashboard')" class="pl-5 ml-1 mb-3">
+      <Link :href="route('dashboard')" :class="isCollapsed ? 'pl-5' : 'pl-2'"
+      class="ml-1 mb-3">
         <ApplicationLogo class="block h-9 w-auto fill-current text-gray-800" :style="{ color: theme.sidebarText }"/>
       </Link>
     </div>
@@ -70,8 +71,8 @@
             <template v-else>
               <Link
                 :href="menu.link"
-                class="w-full flex items-center gap-3 px-4 py-2 text-gray-700 rounded-lg transition"
-                :class="getLinkClass(menu.is_active, false)"
+                class="w-full flex items-center gap-3  py-2 text-gray-700 rounded-lg transition"
+                :class="getLinkClass(menu.is_active, false), isCollapsed ? 'px-4' : 'px-2'"
                 :style="{ color: theme.sidebarText }"
               >
                 <span
