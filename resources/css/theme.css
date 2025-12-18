@@ -10,6 +10,7 @@
   --info: 59, 130, 246;
   --gray: 156, 163, 175;
   --light: 243, 244, 246;
+  --scrollbar: 126, 151, 201;
 }
 
 /* BACKGROUND */
@@ -49,4 +50,23 @@
 .btn-danger:hover {
   background-color: rgba(var(--danger), 0.5);
   color: rgba(var(--danger), 1.5);;
+}
+
+
+/* Scrollbar Setting */
+::-webkit-scrollbar-button {
+  display: none !important;
+}
+
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--scrollbar), 0.6);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(var(--scrollbar), 0.9);
 }

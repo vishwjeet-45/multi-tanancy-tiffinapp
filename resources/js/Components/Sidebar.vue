@@ -1,16 +1,16 @@
 <template>
-  <div class="overflow-y-auto h-full px-3 py-4"
+  <div class="space-y-2"
   :style="{
       backgroundColor: theme.sidebarBg,
       color: theme.sidebarText
     }">
-    <div class="flex shrink-0 items-center">
+    <div class="flex shrink-0 items-center shadow-md py-2">
       <Link :href="route('dashboard')" class="pl-5 ml-1 mb-3">
         <ApplicationLogo class="block h-9 w-auto fill-current text-gray-800" :style="{ color: theme.sidebarText }"/>
       </Link>
     </div>
 
-    <nav>
+    <nav class="px-3 py-4 overflow-y-auto h-[550px]">
       <ul class="space-y-1">
         <template v-for="(menu, index) in menuItems" :key="menu.id || index">
           <li>

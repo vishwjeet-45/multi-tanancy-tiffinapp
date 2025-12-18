@@ -14,6 +14,8 @@
             '--secondary': hexToRgb(theme.secondary),
             '--gray': hexToRgb(theme.gray),
             '--light': hexToRgb(theme.light),
+            '--scrollbar': hexToRgb(theme.scrollbar),
+
             backgroundColor: theme.mainBg,
             color: theme.mainText,
         }"
@@ -55,7 +57,6 @@
         class="w-80 bg-white shadow-lg border-l fixed right-0 top-0 h-full p-5 z-50"
     >
         <h3 class="text-lg font-bold mb-4">Theme Settings</h3>
-
         <div class="space-y-4">
             <div class="space-y-4 h-[394px] overflow-y-auto flex flex-col">
 
@@ -76,6 +77,10 @@
                 <div class="flex justify-between">
                     <label class="block mb-1">Main Text</label>
                     <input type="color" v-model="theme.mainText" />
+                </div>
+                <div class="flex justify-between">
+                    <label class="block mb-1">Scrollbar Color</label>
+                    <input type="color" v-model="theme.scrollbar" />
                 </div>
 
                 <div class="flex justify-between">
@@ -151,6 +156,7 @@ const theme = reactive({
     info: "#f8bb86",
     gray: "#777e89",
     light: "#ffffff",
+    scrollbar: "#1a9bfc"
 });
 
 const defaultTheme = {
@@ -167,6 +173,7 @@ const defaultTheme = {
     info: "#f8bb86",
     gray: "#777e89",
     light: "#ffffff",
+    scrollbar: "#1a9bfc"
 };
 
 function hexToRgb(hex) {
