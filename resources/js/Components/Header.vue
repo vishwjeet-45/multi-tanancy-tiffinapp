@@ -5,6 +5,10 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link, usePage } from '@inertiajs/vue3';
 
+
+const props = defineProps({
+  theme: Object
+});
 const showingNavigationDropdown = ref(false);
 
 const page = usePage();
@@ -17,18 +21,20 @@ function toggleSidebar() {
     isCollapsed.value = !isCollapsed.value;
     emit('toggle', isCollapsed.value);
 }
-
 </script>
-
 <template>
-    <nav class="border-b border-gray-100 bg-white shadow-sm sticky top-0 z-10">
+    <nav class="shadow-md sticky top-0 z-10"
+    :style="{
+      backgroundColor: theme.sidebarBg,
+      color: theme.sidebarText
+    }">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 justify-between">
                 <div class="flex">
 
                     <button
                         @click="toggleSidebar"
-                        class="p-2 rounded-md text-gray-600 hover:bg-gray-100"
+                        class="p-2 rounded-md"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -45,7 +51,7 @@ function toggleSidebar() {
                                 <span class="inline-flex rounded-md">
                                     <button
                                         type="button"
-                                        class="inline-flex items-center rounded-md border border-transparent bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none"
+                                        class="inline-flex items-center rounded-md border border-transparent  px-3 py-2 text-sm font-medium leading-4  transition duration-150 ease-in-out  focus:outline-none"
                                     >
                                         {{ page.props.auth.user?.name }}
 

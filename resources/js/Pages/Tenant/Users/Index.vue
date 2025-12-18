@@ -6,7 +6,7 @@
         <div class="flex justify-end mb-4">
             <Link
                 :href="route('tenant.users.create')"
-                class="bg-blue-600 text-white px-4 py-2 rounded"
+                class="btn-primary px-4 py-2 rounded"
             >
                 Add User
             </Link>
@@ -32,13 +32,13 @@
                             <td class="p-2 text-center ">
                                 <button
                                     @click="openEditModal(user)"
-                                    class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded"
+                                    class="btn-primary hover:bg-yellow-600 text-white px-3 py-1 rounded"
                                 >
                                     Edit
                                 </button>
                                <button
                                     @click="deleteUser(user.id)"
-                                    class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
+                                    class="btn-danger text-white px-3 py-1 rounded"
                                 >
                                     Delete
                                 </button>

@@ -22,7 +22,7 @@ function visit(url) {
       :disabled="!link.url"
       class="px-3 py-1 border rounded"
       :class="{
-        'bg-blue-600 text-white': link.active,
+        'bg-primary text-white': link.active,
         'text-gray-400': !link.url
       }"
     />

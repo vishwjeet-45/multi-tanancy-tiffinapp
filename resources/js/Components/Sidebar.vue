@@ -1,8 +1,12 @@
 <template>
-  <div class="overflow-y-auto h-full px-3 py-4">
+  <div class="overflow-y-auto h-full px-3 py-4"
+  :style="{
+      backgroundColor: theme.sidebarBg,
+      color: theme.sidebarText
+    }">
     <div class="flex shrink-0 items-center">
       <Link :href="route('dashboard')" class="pl-5 ml-1 mb-3">
-        <ApplicationLogo class="block h-9 w-auto fill-current text-gray-800" />
+        <ApplicationLogo class="block h-9 w-auto fill-current text-gray-800" :style="{ color: theme.sidebarText }"/>
       </Link>
     </div>
 
@@ -17,8 +21,9 @@
                 class="w-full flex items-center justify-between gap-3 px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition"
                 :aria-expanded="isMenuOpen(index)"
                 :aria-controls="`submenu-${index}`"
+                :style="{ color: theme.sidebarText }"
               >
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-3" >
                   <span v-html="menu.icon" class="text-xl text-blue-500"></span>
                   <span v-show="!isCollapsed" class="text-left font-medium">
                     {{ menu.title }}
@@ -67,11 +72,13 @@
                 :href="menu.link"
                 class="w-full flex items-center gap-3 px-4 py-2 text-gray-700 rounded-lg transition"
                 :class="getLinkClass(menu.is_active, false)"
+                :style="{ color: theme.sidebarText }"
               >
                 <span
                   v-html="menu.icon"
                   class="text-xl"
                   :class="menu.is_active ? 'text-white' : 'text-blue-500'"
+                  :style="{ color: theme.sidebarText }"
                 ></span>
                 <span v-show="isCollapsed">{{ menu.title }}</span>
               </Link>
@@ -88,6 +95,7 @@ import { Link } from "@inertiajs/vue3";
 import { ref, computed, watch } from "vue";
 import ApplicationLogo from "@/Components/ApplicationLogo.vue";
 
+
 const props = defineProps({
   menuItems: {
     type: Array,
@@ -103,6 +111,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  theme: Object
 });
 
 const emit = defineEmits(["toggle"]);
