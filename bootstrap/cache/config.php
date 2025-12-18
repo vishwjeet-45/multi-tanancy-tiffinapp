@@ -109,9 +109,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\resources\\views',
+      0 => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\resources\\views',
     ),
-    'compiled' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\storage\\framework\\views',
+    'compiled' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\storage\\framework\\views',
   ),
   'app' => 
   array (
@@ -279,8 +279,8 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\storage\\framework/cache/data',
-        'lock_path' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\storage\\framework/cache/data',
+        'path' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\storage\\framework/cache/data',
+        'lock_path' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -343,7 +343,7 @@
       'sqlite' => 
       array (
         'driver' => 'sqlite',
-        'database' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\database\\database.sqlite',
+        'database' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\database\\database.sqlite',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -464,7 +464,7 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\storage\\app/private',
+        'root' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\storage\\app/private',
         'serve' => true,
         'throw' => false,
         'report' => false,
@@ -472,7 +472,7 @@
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\storage\\app/public',
+        'root' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\storage\\app/public',
         'url' => 'http://tiffinapp.test/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -494,7 +494,7 @@
     ),
     'links' => 
     array (
-      'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\public\\storage' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\storage\\app/public',
+      'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\public\\storage' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\storage\\app/public',
     ),
   ),
   'logging' => 
@@ -519,14 +519,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\storage\\logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -591,7 +591,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -669,7 +669,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\resources\\views/vendor/mail',
+        0 => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -781,7 +781,7 @@
     'lifetime' => 120,
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\storage\\framework/sessions',
+    'files' => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -859,7 +859,7 @@
       '--force' => true,
       '--path' => 
       array (
-        0 => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\database\\migrations/tenant',
+        0 => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\database\\migrations/tenant',
       ),
       '--realpath' => true,
     ),
@@ -879,7 +879,7 @@
     'ensure_pages_exist' => false,
     'page_paths' => 
     array (
-      0 => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\resources\\js/Pages',
+      0 => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\resources\\js/Pages',
     ),
     'page_extensions' => 
     array (
@@ -896,7 +896,7 @@
       'ensure_pages_exist' => true,
       'page_paths' => 
       array (
-        0 => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\tiffin-saas\\resources\\js/Pages',
+        0 => 'C:\\Users\\Hp\\Desktop\\vishwjeet\\multi-tanancy-tiffinapp\\resources\\js/Pages',
       ),
       'page_extensions' => 
       array (
@@ -935,6 +935,68 @@
       'authenticate_session' => 'Laravel\\Sanctum\\Http\\Middleware\\AuthenticateSession',
       'encrypt_cookies' => 'Illuminate\\Cookie\\Middleware\\EncryptCookies',
       'validate_csrf_token' => 'Illuminate\\Foundation\\Http\\Middleware\\ValidateCsrfToken',
+    ),
+  ),
+  'scout' => 
+  array (
+    'driver' => 'collection',
+    'prefix' => '',
+    'queue' => false,
+    'after_commit' => false,
+    'chunk' => 
+    array (
+      'searchable' => 500,
+      'unsearchable' => 500,
+    ),
+    'soft_delete' => false,
+    'identify' => false,
+    'algolia' => 
+    array (
+      'id' => '',
+      'secret' => '',
+      'index-settings' => 
+      array (
+      ),
+    ),
+    'meilisearch' => 
+    array (
+      'host' => 'http://localhost:7700',
+      'key' => NULL,
+      'index-settings' => 
+      array (
+      ),
+    ),
+    'typesense' => 
+    array (
+      'client-settings' => 
+      array (
+        'api_key' => 'xyz',
+        'nodes' => 
+        array (
+          0 => 
+          array (
+            'host' => 'localhost',
+            'port' => '8108',
+            'path' => '',
+            'protocol' => 'http',
+          ),
+        ),
+        'nearest_node' => 
+        array (
+          'host' => 'localhost',
+          'port' => '8108',
+          'path' => '',
+          'protocol' => 'http',
+        ),
+        'connection_timeout_seconds' => 2,
+        'healthcheck_interval_seconds' => 30,
+        'num_retries' => 3,
+        'retry_interval_seconds' => 1,
+      ),
+      'model-settings' => 
+      array (
+      ),
+      'import_action' => 'upsert',
     ),
   ),
   'tinker' => 

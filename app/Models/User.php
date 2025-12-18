@@ -46,4 +46,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function toSearchableArray()
+    {
+        return [
+            'name'  => $this->name,
+            'email' => $this->email,
+        ];
+    }
 }

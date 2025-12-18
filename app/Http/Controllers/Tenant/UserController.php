@@ -13,12 +13,12 @@ class UserController extends Controller
 {
      public function index(Request $request)
     {
-        $query = User::query();
-        if($request->search){
-            $query = User::search($request->search);
+       if ($request->filled('search')) {
+            $users = User::search($request->search)->paginate(10);
+        } else {
+            $users = User::latest()->paginate(10);
         }
-        $users = $query->latest()
-        ->paginate(10);
+
         return Inertia::render('Tenant/Users/Index', [
             'users' => $users
         ]);
@@ -52,7 +52,6 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
         ]);
-
         $user->update([
             'name' => $request->name,
         ]);
@@ -65,9 +64,7 @@ class UserController extends Controller
         if (! $user) {
             return redirect()->back()->with('error', 'User not found');
         }
-
         $user->delete();
-
         return redirect()->back()->with('success', 'User deleted successfully');
     }
 

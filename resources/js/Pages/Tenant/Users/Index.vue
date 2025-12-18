@@ -2,7 +2,6 @@
 <template>
     <AppLayout>
         <template #title>Users</template>
-
         <div class="flex justify-end mb-4">
             <Link
                 :href="route('tenant.users.create')"
