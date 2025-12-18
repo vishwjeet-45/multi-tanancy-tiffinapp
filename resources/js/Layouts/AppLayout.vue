@@ -15,6 +15,10 @@
             '--gray': hexToRgb(theme.gray),
             '--light': hexToRgb(theme.light),
             '--scrollbar': hexToRgb(theme.scrollbar),
+            '--card': hexToRgb(theme.card),
+            '--cardTX': hexToRgb(theme.cardTX),
+            '--activeColor': hexToRgb(theme.activeColor),
+            '--active': hexToRgb(theme.active),
 
             backgroundColor: theme.mainBg,
             color: theme.mainText,
@@ -82,6 +86,15 @@
                     <label class="block mb-1">Scrollbar Color</label>
                     <input type="color" v-model="theme.scrollbar" />
                 </div>
+                <div class="flex justify-between">
+                    <label class="block mb-1">Card BG Color</label>
+                    <input type="color" v-model="theme.card" />
+                </div>
+
+                <div class="flex justify-between">
+                    <label class="block mb-1">Card Taxt Color</label>
+                    <input type="color" v-model="theme.cardTX" />
+                </div>
 
                 <div class="flex justify-between">
                     <label class="block mb-1">Primary Color</label>
@@ -90,6 +103,14 @@
                 <div class="flex justify-between">
                     <label class="block mb-1">Danger Color</label>
                     <input type="color" v-model="theme.danger" />
+                </div>
+                <div class="flex justify-between">
+                    <label class="block mb-1">Active Text Color</label>
+                    <input type="color" v-model="theme.activeColor" />
+                </div>
+                <div class="flex justify-between">
+                    <label class="block mb-1">Active BG Color</label>
+                    <input type="color" v-model="theme.active" />
                 </div>
             </div>
 
@@ -114,12 +135,18 @@
         </div>
     </div>
     <!-- Toggle Button -->
+    <div
+        class="fixed cursor-move"
+        :style="{ left: x + 'px', top: y + 'px',zIndex: 9999}"
+        @mousedown="startDrag"
+    >
     <button
-        class="fixed right-4 bottom-6 bg-blue-600 text-white p-3 rounded-full shadow-lg"
+        class="btn-primary p-3 rounded-full shadow-lg"
         @click="showThemePanel = !showThemePanel"
     >
         ⚙️
     </button>
+    </div>
 </template>
 
 <script setup>
@@ -131,6 +158,11 @@ import Notification from "@/Components/Notification.vue";
 
 const page = usePage();
 const showThemePanel = ref(false);
+const x = ref(1272)
+const y = ref(559)
+let isDragging = false
+let offsetX = 600
+let offsetY = 600
 
 const menuItems = computed(() => {
     return page.props.sidebar_menu_links || [];
@@ -154,9 +186,13 @@ const theme = reactive({
     danger: "#fc4b6c",
     warning: "#f8bb86",
     info: "#f8bb86",
-    gray: "#777e89",
+    gray: "#e7e7e7",
     light: "#ffffff",
-    scrollbar: "#1a9bfc"
+    scrollbar: "#1a9bfc",
+    card: "#ffffff",
+    cardTX: "#777e89",
+    activeColor: "#ffffff",
+    active: "#1a9bfc"
 });
 
 const defaultTheme = {
@@ -171,9 +207,13 @@ const defaultTheme = {
     danger: "#fc4b6c",
     warning: "#f8bb86",
     info: "#f8bb86",
-    gray: "#777e89",
+    gray: "#e7e7e7",
     light: "#ffffff",
-    scrollbar: "#1a9bfc"
+    scrollbar: "#1a9bfc",
+    card: "#ffffff",
+    cardTX: "#777e89",
+    activeColor: "#ffffff",
+    active: "#1a9bfc"
 };
 
 function hexToRgb(hex) {
@@ -183,6 +223,20 @@ function hexToRgb(hex) {
     return `${r}, ${g}, ${b}`;
 }
 onMounted(() => {
+    const pos = JSON.parse(localStorage.getItem('settings_icon_pos'))
+    const ICON_SIZE = 56; // icon width/height
+    const PADDING = 8;
+
+    const maxX = window.innerWidth - ICON_SIZE - PADDING;
+    const maxY = window.innerHeight - ICON_SIZE - PADDING;
+
+    if (pos) {
+        x.value = Math.min(Math.max(pos.x, PADDING), maxX);
+        y.value = Math.min(Math.max(pos.y, PADDING), maxY);
+    } else {
+        x.value = 1272;
+        y.value = 559;
+    }
     const savedTheme = localStorage.getItem("admin_theme");
     if (savedTheme) {
         Object.assign(theme, JSON.parse(savedTheme));
@@ -201,4 +255,34 @@ const resetTheme = () => {
     localStorage.removeItem("admin_theme");
     showThemePanel.value = false;
 };
+
+const startDrag = (e) => {
+  isDragging = true
+  offsetX = e.clientX - x.value
+  offsetY = e.clientY - y.value
+
+  document.addEventListener('mousemove', onDrag)
+  document.addEventListener('mouseup', stopDrag)
+}
+
+const onDrag = (e) => {
+  if (!isDragging) return
+
+  x.value = e.clientX - offsetX
+  y.value = e.clientY - offsetY
+}
+
+const stopDrag = () => {
+  isDragging = false
+
+  localStorage.setItem(
+    'settings_icon_pos',
+    JSON.stringify({ x: x.value, y: y.value })
+  )
+
+  document.removeEventListener('mousemove', onDrag)
+  document.removeEventListener('mouseup', stopDrag)
+}
+
+
 </script>

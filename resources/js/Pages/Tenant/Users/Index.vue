@@ -11,13 +11,13 @@
             </Link>
         </div>
 
-        <div class="w-full bg-white rounded shadow p-3">
+        <div class="w-full card rounded shadow p-3">
             <div class="card-body">
                 <div class="flex justify-end mb-4">
                     <Search route-name="tenant.users.index" v-model="search" />
                 </div>
-                <table class="w-full bg-white rounded shadow">
-                    <thead class="bg-gray-100">
+                <table class="w-full card cardTX rounded shadow">
+                    <thead class="bg-gray">
                         <tr>
                             <th class="p-2 text-left">Name</th>
                             <th class="p-2 text-left">Email</th>
