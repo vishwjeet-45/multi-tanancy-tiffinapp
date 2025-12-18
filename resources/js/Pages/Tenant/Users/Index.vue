@@ -2,6 +2,7 @@
 <template>
     <AppLayout>
         <template #title>Users</template>
+         <Head title="Users" />
         <div class="flex justify-end mb-4">
             <Link
                 :href="route('tenant.users.create')"
@@ -97,7 +98,7 @@
 
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
-import { Link, router,usePage } from "@inertiajs/vue3";
+import { Link, router,usePage,Head } from "@inertiajs/vue3";
 import Pagination from "@/Components/Pagination.vue";
 import Search from "@/Components/Search.vue";
 import { ref } from "vue";
