@@ -12,172 +12,175 @@ class SidebarService
 
     public static function get(): array
     {
+
         $user = Auth::user();
 
+        Cache::flush();
 
-        return [
-            [
-                'id' => 'dashboard',
-                'title' => 'Dashboard',
-                'icon' => '<i class="ri-dashboard-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('dashboard'),
-                'permission' => 'view_dashboard',
-            ],
-            [
-                'id' => 'users',
-                'title' => 'Users',
-                'icon' => '<i class="ri-group-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('users.*'),
-                'permission' => 'view_users',
-            ],
-             [
-                'id' => 'dashboard',
-                'title' => 'Dashboard',
-                'icon' => '<i class="ri-dashboard-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('dashboard'),
-                'permission' => 'view_dashboard',
-            ],
-            [
-                'id' => 'users',
-                'title' => 'Users',
-                'icon' => '<i class="ri-group-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('users.*'),
-                'permission' => 'view_users',
-            ],
-             [
-                'id' => 'dashboard',
-                'title' => 'Dashboard',
-                'icon' => '<i class="ri-dashboard-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('dashboard'),
-                'permission' => 'view_dashboard',
-            ],
-            [
-                'id' => 'users',
-                'title' => 'Users',
-                'icon' => '<i class="ri-group-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('users.*'),
-                'permission' => 'view_users',
-            ],
-             [
-                'id' => 'dashboard',
-                'title' => 'Dashboard',
-                'icon' => '<i class="ri-dashboard-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('dashboard'),
-                'permission' => 'view_dashboard',
-            ],
-            [
-                'id' => 'users',
-                'title' => 'Users',
-                'icon' => '<i class="ri-group-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('users.*'),
-                'permission' => 'view_users',
-            ],
-             [
-                'id' => 'dashboard',
-                'title' => 'Dashboard',
-                'icon' => '<i class="ri-dashboard-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('dashboard'),
-                'permission' => 'view_dashboard',
-            ],
-            [
-                'id' => 'users',
-                'title' => 'Users',
-                'icon' => '<i class="ri-group-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('users.*'),
-                'permission' => 'view_users',
-            ],
-             [
-                'id' => 'dashboard',
-                'title' => 'Dashboard',
-                'icon' => '<i class="ri-dashboard-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('dashboard'),
-                'permission' => 'view_dashboard',
-            ],
-            [
-                'id' => 'users',
-                'title' => 'Users',
-                'icon' => '<i class="ri-group-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('users.*'),
-                'permission' => 'view_users',
-            ],
-             [
-                'id' => 'dashboard',
-                'title' => 'Dashboard',
-                'icon' => '<i class="ri-dashboard-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('dashboard'),
-                'permission' => 'view_dashboard',
-            ],
-            [
-                'id' => 'users',
-                'title' => 'Users',
-                'icon' => '<i class="ri-group-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('users.*'),
-                'permission' => 'view_users',
-            ],
-             [
-                'id' => 'dashboard',
-                'title' => 'Dashboard',
-                'icon' => '<i class="ri-dashboard-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('dashboard'),
-                'permission' => 'view_dashboard',
-            ],
-            [
-                'id' => 'users',
-                'title' => 'Users',
-                'icon' => '<i class="ri-group-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('users.*'),
-                'permission' => 'view_users',
-            ],
-             [
-                'id' => 'dashboard',
-                'title' => 'Dashboard',
-                'icon' => '<i class="ri-dashboard-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('dashboard'),
-                'permission' => 'view_dashboard',
-            ],
-            [
-                'id' => 'users',
-                'title' => 'Users',
-                'icon' => '<i class="ri-group-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('users.*'),
-                'permission' => 'view_users',
-            ],
-             [
-                'id' => 'dashboard',
-                'title' => 'Dashboard',
-                'icon' => '<i class="ri-dashboard-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('dashboard'),
-                'permission' => 'view_dashboard',
-            ],
-            [
-                'id' => 'users',
-                'title' => 'Users',
-                'icon' => '<i class="ri-group-line"></i>',
-                'link' => '#',
-                'is_active' => request()->routeIs('users.*'),
-                'permission' => 'view_users',
-            ],
 
-        ];
+        // return [
+        //     [
+        //         'id' => 'dashboard',
+        //         'title' => 'Dashboard',
+        //         'icon' => '<i class="ri-dashboard-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('dashboard'),
+        //         'permission' => 'view_dashboard',
+        //     ],
+        //     [
+        //         'id' => 'users',
+        //         'title' => 'Users',
+        //         'icon' => '<i class="ri-group-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('users.*'),
+        //         'permission' => 'view_users',
+        //     ],
+        //      [
+        //         'id' => 'dashboard',
+        //         'title' => 'Dashboard',
+        //         'icon' => '<i class="ri-dashboard-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('dashboard'),
+        //         'permission' => 'view_dashboard',
+        //     ],
+        //     [
+        //         'id' => 'users',
+        //         'title' => 'Users',
+        //         'icon' => '<i class="ri-group-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('users.*'),
+        //         'permission' => 'view_users',
+        //     ],
+        //      [
+        //         'id' => 'dashboard',
+        //         'title' => 'Dashboard',
+        //         'icon' => '<i class="ri-dashboard-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('dashboard'),
+        //         'permission' => 'view_dashboard',
+        //     ],
+        //     [
+        //         'id' => 'users',
+        //         'title' => 'Users',
+        //         'icon' => '<i class="ri-group-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('users.*'),
+        //         'permission' => 'view_users',
+        //     ],
+        //      [
+        //         'id' => 'dashboard',
+        //         'title' => 'Dashboard',
+        //         'icon' => '<i class="ri-dashboard-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('dashboard'),
+        //         'permission' => 'view_dashboard',
+        //     ],
+        //     [
+        //         'id' => 'users',
+        //         'title' => 'Users',
+        //         'icon' => '<i class="ri-group-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('users.*'),
+        //         'permission' => 'view_users',
+        //     ],
+        //      [
+        //         'id' => 'dashboard',
+        //         'title' => 'Dashboard',
+        //         'icon' => '<i class="ri-dashboard-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('dashboard'),
+        //         'permission' => 'view_dashboard',
+        //     ],
+        //     [
+        //         'id' => 'users',
+        //         'title' => 'Users',
+        //         'icon' => '<i class="ri-group-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('users.*'),
+        //         'permission' => 'view_users',
+        //     ],
+        //      [
+        //         'id' => 'dashboard',
+        //         'title' => 'Dashboard',
+        //         'icon' => '<i class="ri-dashboard-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('dashboard'),
+        //         'permission' => 'view_dashboard',
+        //     ],
+        //     [
+        //         'id' => 'users',
+        //         'title' => 'Users',
+        //         'icon' => '<i class="ri-group-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('users.*'),
+        //         'permission' => 'view_users',
+        //     ],
+        //      [
+        //         'id' => 'dashboard',
+        //         'title' => 'Dashboard',
+        //         'icon' => '<i class="ri-dashboard-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('dashboard'),
+        //         'permission' => 'view_dashboard',
+        //     ],
+        //     [
+        //         'id' => 'users',
+        //         'title' => 'Users',
+        //         'icon' => '<i class="ri-group-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('users.*'),
+        //         'permission' => 'view_users',
+        //     ],
+        //      [
+        //         'id' => 'dashboard',
+        //         'title' => 'Dashboard',
+        //         'icon' => '<i class="ri-dashboard-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('dashboard'),
+        //         'permission' => 'view_dashboard',
+        //     ],
+        //     [
+        //         'id' => 'users',
+        //         'title' => 'Users',
+        //         'icon' => '<i class="ri-group-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('users.*'),
+        //         'permission' => 'view_users',
+        //     ],
+        //      [
+        //         'id' => 'dashboard',
+        //         'title' => 'Dashboard',
+        //         'icon' => '<i class="ri-dashboard-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('dashboard'),
+        //         'permission' => 'view_dashboard',
+        //     ],
+        //     [
+        //         'id' => 'users',
+        //         'title' => 'Users',
+        //         'icon' => '<i class="ri-group-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('users.*'),
+        //         'permission' => 'view_users',
+        //     ],
+        //      [
+        //         'id' => 'dashboard',
+        //         'title' => 'Dashboard',
+        //         'icon' => '<i class="ri-dashboard-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('dashboard'),
+        //         'permission' => 'view_dashboard',
+        //     ],
+        //     [
+        //         'id' => 'users',
+        //         'title' => 'Users',
+        //         'icon' => '<i class="ri-group-line"></i>',
+        //         'link' => '#',
+        //         'is_active' => request()->routeIs('users.*'),
+        //         'permission' => 'view_users',
+        //     ],
+
+        // ];
         $user = Auth::user();
 
         if (!$user) {
@@ -185,7 +188,7 @@ class SidebarService
         }
 
         // Cache per user role to improve performance
-        $cacheKey = 'sidebar_menu_' . $user->id . '_' . md5(json_encode($user->roles->pluck('id')));
+        $cacheKey = 'sidebar_menu_' . $user->id;
 
         return Cache::remember($cacheKey, now()->addHours(24), function () use ($user) {
             $menuItems = self::getMenuStructure();
@@ -235,7 +238,7 @@ class SidebarService
                 'id' => 'users',
                 'title' => 'Manage Users',
                 'icon' => '<i class="ri-group-line"></i>',
-                'link' => route('users.index'),
+                'link' => route('dashboard'),
                 'permission' => 'manage_users',
                 'submenu' => self::getUserRoleSubmenu(),
             ],
@@ -243,8 +246,9 @@ class SidebarService
                 'id' => 'settings',
                 'title' => 'Settings',
                 'icon' => '<i class="ri-settings-3-line"></i>',
-                'link' => route('settings.index'),
+                'link' => route('dashboard'),
                 'permission' => 'manage_settings',
+                'submenu' => self::getUserRoleSubmenu(),
             ],
             // Add more menu items here...
         ];
@@ -264,7 +268,7 @@ class SidebarService
             return [
                 'id' => 'role_' . $role->id,
                 'title' => ucwords(str_replace('_', ' ', $role->name)),
-                'link' => route('admin.user_list', Str::slug($role->name)),
+                'link' => route('dashboard'),
                 'permission' => 'view_users',
             ];
         })->toArray();

@@ -53,8 +53,7 @@ table thead {
 }
 
 nav ul li a:hover{
-    background-color: rgba(var(--active), 0.75) !important;
-    color: rgba(var(--activeColor), 0.5) !important;
+    background-color: rgba(var(--active), 0.2) !important;
 }
 
 /* BUTTONS */

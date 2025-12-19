@@ -12,27 +12,28 @@
     </div>
 
     <nav class="px-3 py-4 overflow-y-auto h-[550px]">
-      <ul class="space-y-1">
+      <ul class="space-y-4">
         <template v-for="(menu, index) in menuItems" :key="menu.id || index">
           <li>
             <!-- Menu with submenu -->
             <template v-if="hasSubmenu(menu)">
               <button
                 @click="toggleMenu(index)"
-                class="w-full flex items-center justify-between gap-3 px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition"
+                class="w-full flex items-center justify-between gap-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition"
+                :class="isCollapsed ? 'px-4' : 'px-2'"
                 :aria-expanded="isMenuOpen(index)"
                 :aria-controls="`submenu-${index}`"
                 :style="{ color: theme.sidebarText }"
               >
                 <div class="flex items-center gap-3" >
-                  <span v-html="menu.icon" class="text-xl text-blue-500"></span>
-                  <span v-show="!isCollapsed" class="text-left font-medium">
+                  <span v-html="menu.icon" class="text-xl"></span>
+                  <span v-show="isCollapsed" class="text-left font-medium">
                     {{ menu.title }}
                   </span>
                 </div>
 
                 <svg
-                  v-show="!isCollapsed"
+                  v-show="isCollapsed"
                   class="w-4 h-4 text-gray-400 transform transition duration-300"
                   :class="{ 'rotate-90': isMenuOpen(index) }"
                   fill="none"
@@ -49,7 +50,7 @@
               </button>
 
               <ul
-                v-show="!isCollapsed"
+                v-show="isCollapsed"
                 :id="`submenu-${index}`"
                 class="ml-5 mt-1 space-y-1 overflow-hidden transition-all duration-300 ease-in-out"
                 :style="submenuStyle(menu, index)"
@@ -90,7 +91,7 @@
 
 <script setup>
 import { Link } from "@inertiajs/vue3";
-import { ref, computed, watch } from "vue";
+import { ref } from "vue";
 import ApplicationLogo from "@/Components/ApplicationLogo.vue";
 
 
@@ -149,7 +150,7 @@ const submenuStyle = (menu, index) => {
 const getLinkClass = (isActive, isSubmenu) => {
   if (isActive) {
     return isSubmenu
-      ? "active  font-semibold"
+      ? "font-semibold"
       : "active  font-semibold shadow-md";
   }
   return isSubmenu
@@ -157,38 +158,4 @@ const getLinkClass = (isActive, isSubmenu) => {
     : "hover:bg-[rgb(248,255,236)] font-medium";
 };
 
-// Auto-open parent menu if any submenu item is active
-const initializeOpenMenus = () => {
-  props.menuItems.forEach((menu, index) => {
-    if (hasSubmenu(menu)) {
-      const hasActiveChild = menu.submenu.some((sub) => sub.is_active);
-      if (hasActiveChild) {
-        openMenus.value.add(index);
-      }
-    }
-  });
-};
-
-// Initialize on mount and watch for changes
-initializeOpenMenus();
-
-watch(
-  () => props.menuItems,
-  () => {
-    initializeOpenMenus();
-  },
-  { deep: true }
-);
-
-// Close all menus when sidebar collapses
-watch(
-  () => props.isCollapsed,
-  (collapsed) => {
-    if (collapsed) {
-      openMenus.value.clear();
-    } else {
-      initializeOpenMenus();
-    }
-  }
-);
 </script>
