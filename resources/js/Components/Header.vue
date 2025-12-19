@@ -76,7 +76,7 @@ function toggleSidebar() {
                                     Profile
                                 </DropdownLink>
                                 <DropdownLink
-                                    :href="route('logout')"
+                                    :href="route('tenant.logout')"
                                     method="post"
                                     as="button"
                                 >

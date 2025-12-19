@@ -57,7 +57,7 @@
                 <li v-for="(sub, sIdx) in menu.submenu" :key="sub.id || sIdx">
                   <Link
                     :href="sub.link"
-                    class="flex items-center gap-3 pl-6 pr-4 py-2 rounded-lg text-sm text-gray-600 transition"
+                    class="flex items-center gap-3 pl-6 pr-4 py-2 rounded-lg text-sm  transition"
                     :class="getLinkClass(sub.is_active, true)"
                   >
                     <i class="ri-arrow-right-s-line text-lg"></i>
@@ -71,15 +71,12 @@
             <template v-else>
               <Link
                 :href="menu.link"
-                class="w-full flex items-center gap-3  py-2 text-gray-700 rounded-lg transition"
+                class="w-full flex items-center gap-3  py-2  rounded-lg transition"
                 :class="getLinkClass(menu.is_active, false), isCollapsed ? 'px-4' : 'px-2'"
-                :style="{ color: theme.sidebarText }"
               >
                 <span
                   v-html="menu.icon"
                   class="text-xl"
-                  :class="menu.is_active ? 'text-white' : 'text-blue-500'"
-                  :style="{ color: theme.sidebarText }"
                 ></span>
                 <span v-show="isCollapsed">{{ menu.title }}</span>
               </Link>
@@ -152,8 +149,8 @@ const submenuStyle = (menu, index) => {
 const getLinkClass = (isActive, isSubmenu) => {
   if (isActive) {
     return isSubmenu
-      ? "bg-[rgb(223,247,182)] text-blue-600 font-semibold"
-      : "bg-[rgb(208,243,149)] text-dark font-semibold shadow-md";
+      ? "active  font-semibold"
+      : "active  font-semibold shadow-md";
   }
   return isSubmenu
     ? "hover:bg-gray-50 hover:text-gray-800"

@@ -29,7 +29,7 @@
 .card { background-color: rgb(var(--card)); }
 .active {
     background-color: rgb(var(--active));
-    color: rgb(var(--activeColor));
+    color: rgb(var(--activeColor)) !important;
 }
 table thead {
     background-color: rgb(var(--bgTableHead));
