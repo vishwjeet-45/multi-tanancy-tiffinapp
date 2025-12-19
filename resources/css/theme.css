@@ -15,6 +15,9 @@
   --scrollbar: 126, 151, 201;
   --card:243, 244, 246;
   --cardTX:156, 163, 175;
+  --border: 243, 244, 246
+  --bgTableHead:243, 244, 246;
+  --TableHeadText:156, 163, 175;
 }
 
 /* BACKGROUND */
@@ -28,6 +31,11 @@
     background-color: rgb(var(--active));
     color: rgb(var(--activeColor));
 }
+table thead {
+    background-color: rgb(var(--bgTableHead));
+    color: rgb(var(--TableHeadText));
+}
+
 
 
 /* TEXT */
@@ -37,6 +45,7 @@
 .text-warning { color: rgb(var(--success)); }
 .text-gray { color: rgb(var(--gray)); }
 .cardTX { color: rgb(var(--cardTX)); }
+*, ::before, ::after, .border{ border-color: rgb(var(--border));}
 
 /* HOVER */
 .hover-primary:hover {

@@ -27,14 +27,14 @@ class AdminSeederJob implements ShouldQueue
         // 🔥 Switch to tenant DB
         $tenancy->initialize($this->tenant);
 
-        if (User::where('email', 'admin@admin.com')->exists()) {
+        if (User::where('email', $this->tenant?->email)->exists()) {
             return;
         }
 
         User::create([
-            'name' => 'Admin',
-            'email' => 'admin@admin.com',
-            'password' => Hash::make('password'),
+            'name' => $this->tenant?->name ?? 'Admin',
+            'email' => $this->tenant?->email ?? 'admin@admin.com',
+            'password' => $this->tenant?->password ?? Hash::make('password'),
         ]);
 
         // Optional cleanup

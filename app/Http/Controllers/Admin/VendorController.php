@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Tenant;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Storage;
 
 class VendorController extends Controller
 {
@@ -19,18 +22,36 @@ class VendorController extends Controller
     // Handle the form submission
     public function store(Request $request)
     {
+        $request->merge([
+            'domain' => $request->domain . '.tiffinapp.test'
+        ]);
         $request->validate([
             'name' => 'required|string|max:255',
-            'domain' => 'required|string|alpha_dash|unique:domains,domain',
+            'domain' => 'required|string|unique:domains,domain',
+            'email' => 'required|email',
+            'password' => ['required', Rules\Password::defaults()],
+            'logo' => 'nullable|image|mimes:png,jpg,jpeg,webp|max:2048',
         ]);
+
+        $logoPath = null;
+
+        if ($request->hasFile('logo')) {
+            $logoPath = $request->file('logo')->store(
+                'tenants/logos',
+                'public'
+            );
+        }
 
         $tenant = Tenant::create([
             'id' => (string) Str::uuid(),
-            'data' => 'Vishwjeet Tiffin',
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'logo' => $logoPath,
         ]);
 
         $tenant->domains()->create([
-            'domain' => 'vishwjeet.tiffinapp.test',
+            'domain' => $request->domain
         ]);
         // 🔹 END OF CODE
 

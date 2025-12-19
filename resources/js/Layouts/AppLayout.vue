@@ -20,6 +20,10 @@
             '--activeColor': hexToRgb(theme.activeColor),
             '--active': hexToRgb(theme.active),
 
+            '--border': hexToRgb(theme.border),
+            '--bgTableHead': hexToRgb(theme.bgTableHead),
+            '--TableHeadText': hexToRgb(theme.TableHeadText),
+
             backgroundColor: theme.mainBg,
             color: theme.mainText,
         }"
@@ -92,6 +96,19 @@
                     <div class="flex justify-between">
                         <label class="block mb-1">Card Taxt Color</label>
                         <input type="color" v-model="theme.cardTX" />
+                    </div>
+
+                    <div class="flex justify-between">
+                        <label class="block mb-1">Border Color</label>
+                        <input type="color" v-model="theme.border" />
+                    </div>
+                    <div class="flex justify-between">
+                        <label class="block mb-1">Table Head BG Color</label>
+                        <input type="color" v-model="theme.bgTableHead" />
+                    </div>
+                    <div class="flex justify-between">
+                        <label class="block mb-1">Table head Taxt Color</label>
+                        <input type="color" v-model="theme.TableHeadText" />
                     </div>
 
                     <div class="flex justify-between">
@@ -192,6 +209,9 @@ const theme = reactive({
     cardTX: "#777e89",
     activeColor: "#ffffff",
     active: "#1a9bfc",
+    border: "#e5e7eb",
+    bgTableHead:"#454e66",
+    TableHeadText: "#e7e7e7"
 });
 
 const defaultTheme = {
@@ -213,6 +233,9 @@ const defaultTheme = {
     cardTX: "#777e89",
     activeColor: "#ffffff",
     active: "#1a9bfc",
+    border: "#e5e7eb",
+    bgTableHead:"#454e66",
+    TableHeadText: "#e7e7e7"
 };
 
 function hexToRgb(hex) {

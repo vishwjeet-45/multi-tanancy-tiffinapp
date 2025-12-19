@@ -18,7 +18,7 @@
                     <Search route-name="tenant.users.index" v-model="search" />
                 </div>
                 <table class="w-full card cardTX rounded shadow">
-                    <thead class="bg-gray">
+                    <thead>
                         <tr>
                             <th class="p-2 text-left">Name</th>
                             <th class="p-2 text-left">Email</th>

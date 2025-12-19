@@ -33,7 +33,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::z37SoEzy2Za1erUN',
+            '_route' => 'generated::HDLOhDWpOUjrwx2U',
           ),
           1 => NULL,
           2 => 
@@ -53,7 +53,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::RHIzX7RevrZpuclh',
+            '_route' => 'generated::juxeCoHb2lfBdmXY',
           ),
           1 => 'tiffinapp.test',
           2 => 
@@ -179,7 +179,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::0oWC9qM1jUSNX0ag',
+            '_route' => 'generated::VFt89hRuVuc2ywv5',
           ),
           1 => 'tiffinapp.test',
           2 => 
@@ -196,7 +196,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::9G5BZTEebMWf8N4y',
+            '_route' => 'generated::YI033PRWyVeER2FK',
           ),
           1 => 'tiffinapp.test',
           2 => 
@@ -232,7 +232,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::svZ8YMIy3EaezVWb',
+            '_route' => 'generated::s2iEOHTZ1vtwc9vo',
           ),
           1 => 'tiffinapp.test',
           2 => 
@@ -301,7 +301,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::d97BNT1v5IJ1ew4j',
+            '_route' => 'generated::0BYliM5hnH4YvXW1',
           ),
           1 => 'tiffinapp.test',
           2 => 
@@ -317,7 +317,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'tenant.tenant.login',
+            '_route' => 'tenant.login',
           ),
           1 => NULL,
           2 => 
@@ -334,7 +334,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'tenant.generated::SQ3Ziw2yd2mgMAww',
+            '_route' => 'tenant.generated::j89fmbnNXTSHkSIG',
           ),
           1 => NULL,
           2 => 
@@ -464,7 +464,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::YDAOl7cOG09qIYbd',
+            '_route' => 'generated::MC0zPubPpZiHkQuz',
           ),
           1 => 'tiffinapp.test',
           2 => 
@@ -518,7 +518,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'tenant.tenant.logout',
+            '_route' => 'tenant.logout',
           ),
           1 => NULL,
           2 => 
@@ -593,7 +593,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::KKiM2XzcPicxAEH8',
+            '_route' => 'generated::4R3P9h4AktKN5d9o',
           ),
           1 => NULL,
           2 => 
@@ -877,7 +877,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::z37SoEzy2Za1erUN' => 
+    'generated::HDLOhDWpOUjrwx2U' => 
     array (
       'methods' => 
       array (
@@ -906,7 +906,7 @@ app('router')->setCompiledRoutes(
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
                 }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000008710000000000000000";}}',
-        'as' => 'generated::z37SoEzy2Za1erUN',
+        'as' => 'generated::HDLOhDWpOUjrwx2U',
       ),
       'fallback' => false,
       'defaults' => 
@@ -922,7 +922,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::RHIzX7RevrZpuclh' => 
+    'generated::juxeCoHb2lfBdmXY' => 
     array (
       'methods' => 
       array (
@@ -950,7 +950,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::RHIzX7RevrZpuclh',
+        'as' => 'generated::juxeCoHb2lfBdmXY',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1122,7 +1122,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::0oWC9qM1jUSNX0ag' => 
+    'generated::VFt89hRuVuc2ywv5' => 
     array (
       'methods' => 
       array (
@@ -1145,7 +1145,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::0oWC9qM1jUSNX0ag',
+        'as' => 'generated::VFt89hRuVuc2ywv5',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1161,7 +1161,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::9G5BZTEebMWf8N4y' => 
+    'generated::YI033PRWyVeER2FK' => 
     array (
       'methods' => 
       array (
@@ -1183,7 +1183,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::9G5BZTEebMWf8N4y',
+        'as' => 'generated::YI033PRWyVeER2FK',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1238,7 +1238,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::svZ8YMIy3EaezVWb' => 
+    'generated::s2iEOHTZ1vtwc9vo' => 
     array (
       'methods' => 
       array (
@@ -1260,7 +1260,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::svZ8YMIy3EaezVWb',
+        'as' => 'generated::s2iEOHTZ1vtwc9vo',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1315,7 +1315,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::d97BNT1v5IJ1ew4j' => 
+    'generated::0BYliM5hnH4YvXW1' => 
     array (
       'methods' => 
       array (
@@ -1337,7 +1337,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::d97BNT1v5IJ1ew4j',
+        'as' => 'generated::0BYliM5hnH4YvXW1',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1665,7 +1665,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::YDAOl7cOG09qIYbd' => 
+    'generated::MC0zPubPpZiHkQuz' => 
     array (
       'methods' => 
       array (
@@ -1687,7 +1687,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::YDAOl7cOG09qIYbd',
+        'as' => 'generated::MC0zPubPpZiHkQuz',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2164,7 +2164,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::KKiM2XzcPicxAEH8' => 
+    'generated::4R3P9h4AktKN5d9o' => 
     array (
       'methods' => 
       array (
@@ -2180,7 +2180,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::KKiM2XzcPicxAEH8',
+        'as' => 'generated::4R3P9h4AktKN5d9o',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2273,7 +2273,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'tenant.tenant.login' => 
+    'tenant.login' => 
     array (
       'methods' => 
       array (
@@ -2291,7 +2291,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'App\\Http\\Controllers\\Tenant\\Auth\\AuthenticatedSessionController@create',
         'controller' => 'App\\Http\\Controllers\\Tenant\\Auth\\AuthenticatedSessionController@create',
-        'as' => 'tenant.tenant.login',
+        'as' => 'tenant.login',
         'namespace' => '',
         'prefix' => '',
         'where' => 
@@ -2312,7 +2312,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'tenant.generated::SQ3Ziw2yd2mgMAww' => 
+    'tenant.generated::j89fmbnNXTSHkSIG' => 
     array (
       'methods' => 
       array (
@@ -2329,7 +2329,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'App\\Http\\Controllers\\Tenant\\Auth\\AuthenticatedSessionController@store',
         'controller' => 'App\\Http\\Controllers\\Tenant\\Auth\\AuthenticatedSessionController@store',
-        'as' => 'tenant.generated::SQ3Ziw2yd2mgMAww',
+        'as' => 'tenant.generated::j89fmbnNXTSHkSIG',
         'namespace' => '',
         'prefix' => '',
         'where' => 
@@ -2350,7 +2350,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'tenant.tenant.logout' => 
+    'tenant.logout' => 
     array (
       'methods' => 
       array (
@@ -2367,7 +2367,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'App\\Http\\Controllers\\Tenant\\Auth\\AuthenticatedSessionController@destroy',
         'controller' => 'App\\Http\\Controllers\\Tenant\\Auth\\AuthenticatedSessionController@destroy',
-        'as' => 'tenant.tenant.logout',
+        'as' => 'tenant.logout',
         'namespace' => '',
         'prefix' => '',
         'where' => 

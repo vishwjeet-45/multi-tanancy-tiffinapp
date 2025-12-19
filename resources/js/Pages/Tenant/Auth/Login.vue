@@ -23,7 +23,8 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('login'), {
+    console.log('dsfsf');
+    form.post(route('tenant.login'), {
         onFinish: () => form.reset('password'),
     });
 };
