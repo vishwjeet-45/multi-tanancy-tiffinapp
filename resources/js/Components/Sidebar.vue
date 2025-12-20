@@ -4,7 +4,7 @@
       backgroundColor: theme.sidebarBg,
       color: theme.sidebarText
     }">
-    <div class="flex shrink-0 items-center shadow-md py-2">
+    <div class="flex shrink-0 items-center py-2">
       <Link :href="route('dashboard')" :class="isCollapsed ? 'pl-5' : 'pl-2'"
       class="ml-1 mb-3">
         <ApplicationLogo class="block h-9 w-auto fill-current text-gray-800" :style="{ color: theme.sidebarText }"/>

@@ -23,7 +23,7 @@ function toggleSidebar() {
 }
 </script>
 <template>
-    <nav class="shadow-md sticky top-0 z-10"
+    <nav class=" sticky top-0 z-10" id="card"
     :style="{
       backgroundColor: theme.sidebarBg,
       color: theme.sidebarText

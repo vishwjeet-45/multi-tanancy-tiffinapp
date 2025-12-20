@@ -24,13 +24,12 @@
             '--bgTableHead': hexToRgb(theme.bgTableHead),
             '--TableHeadText': hexToRgb(theme.TableHeadText),
 
-            backgroundColor: theme.mainBg,
-            color: theme.mainText,
+            backgroundColor: theme.sidebarBg
         }"
     >
         <aside
             :class="[
-                'h-screen fixed z-20 transition-all shadow-md top-0 z-20',
+                'h-screen fixed z-20 transition-all  top-0 z-20',
                 isCollapsed ? 'w-16' : 'w-64',
             ]"
             :style="{
@@ -52,7 +51,8 @@
         >
             <Header @toggle="handleSidebarToggle" :theme="theme" />
 
-            <main class="flex-1 p-4 sm:p-6">
+            <main id="scrollArea" class="flex-1 p-4 sm:p-6  max-hight-[100vh-64px]  rounded-[15px] shadow-md overflow-auto" :style=" {backgroundColor: theme.mainBg,
+            color: theme.mainText,}">
                 <Notification />
                 <slot />
             </main>
@@ -193,7 +193,7 @@ function handleSidebarToggle(value) {
 const theme = reactive({
     sidebarBg: "#ffffff",
     sidebarText: "#504c4c",
-    mainBg: "#f9fafb",
+    mainBg: "#eceff1",
     mainText: "#111827",
 
     primary: "#1a9bfc",
@@ -217,7 +217,7 @@ const theme = reactive({
 const defaultTheme = {
     sidebarBg: "#ffffff",
     sidebarText: "#504c4c",
-    mainBg: "#f4faff",
+    mainBg: "#eceff1",
     mainText: "#111827",
 
     primary: "#1a9bfc",
