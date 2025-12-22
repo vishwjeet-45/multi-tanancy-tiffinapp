@@ -24,7 +24,7 @@
             '--bgTableHead': hexToRgb(theme.bgTableHead),
             '--TableHeadText': hexToRgb(theme.TableHeadText),
 
-            backgroundColor: theme.sidebarBg
+            backgroundColor: theme.sidebarBg,
         }"
     >
         <aside
@@ -51,8 +51,14 @@
         >
             <Header @toggle="handleSidebarToggle" :theme="theme" />
 
-            <main id="scrollArea" class="flex-1 p-4 sm:p-6  max-hight-[100vh-64px]  rounded-[15px] shadow-md overflow-auto" :style=" {backgroundColor: theme.mainBg,
-            color: theme.mainText,}">
+            <main
+                id="scrollArea"
+                class="flex-1 p-4 sm:p-6 max-hight-[100vh-64px] rounded-[15px] shadow-md overflow-auto"
+                :style="{
+                    backgroundColor: theme.mainBg,
+                    color: theme.mainText,
+                }"
+            >
                 <Notification />
                 <slot />
             </main>
@@ -210,8 +216,8 @@ const theme = reactive({
     activeColor: "#ffffff",
     active: "#1a9bfc",
     border: "#e5e7eb",
-    bgTableHead:"#454e66",
-    TableHeadText: "#e7e7e7"
+    bgTableHead: "#454e66",
+    TableHeadText: "#e7e7e7",
 });
 
 const defaultTheme = {
@@ -234,8 +240,8 @@ const defaultTheme = {
     activeColor: "#ffffff",
     active: "#1a9bfc",
     border: "#e5e7eb",
-    bgTableHead:"#454e66",
-    TableHeadText: "#e7e7e7"
+    bgTableHead: "#454e66",
+    TableHeadText: "#e7e7e7",
 };
 
 function hexToRgb(hex) {

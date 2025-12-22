@@ -62,9 +62,14 @@ nav ul li a:hover{
   color: white;
 }
 
+.btn-outline-primary{
+  border:solid;
+  color: rgb(var(--primary));
+}
+
 .btn-primary:hover {
-  background-color: rgba(var(--primary), 0.75);
-   color: rgba(var(--success), 1.5);
+  background-color: rgba(var(--primary), 0.2);
+   color: rgba(var(--primary), 1.5);
 
 }
 
